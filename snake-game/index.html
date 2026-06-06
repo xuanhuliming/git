@@ -34,6 +34,43 @@
         </button>
       </header>
 
+      <section class="skin-picker" aria-label="蛇身样式选择">
+        <div class="skin-picker__label">
+          <span>初始样式</span>
+          <strong>开始前可切换外观</strong>
+        </div>
+        <div class="skin-picker__options" role="radiogroup" aria-label="贪吃蛇外观">
+          <button class="skin-option" type="button" data-skin="ember">
+            <span class="skin-option__swatch skin-option__swatch--ember" aria-hidden="true"></span>
+            <span class="skin-option__text">
+              <strong>烈焰</strong>
+              <small>火焰尾迹</small>
+            </span>
+          </button>
+          <button class="skin-option" type="button" data-skin="storm">
+            <span class="skin-option__swatch skin-option__swatch--storm" aria-hidden="true"></span>
+            <span class="skin-option__text">
+              <strong>雷霆</strong>
+              <small>闪电弧光</small>
+            </span>
+          </button>
+          <button class="skin-option" type="button" data-skin="jade">
+            <span class="skin-option__swatch skin-option__swatch--jade" aria-hidden="true"></span>
+            <span class="skin-option__text">
+              <strong>翡翠</strong>
+              <small>毒雾冷焰</small>
+            </span>
+          </button>
+          <button class="skin-option" type="button" data-skin="cosmic">
+            <span class="skin-option__swatch skin-option__swatch--cosmic" aria-hidden="true"></span>
+            <span class="skin-option__text">
+              <strong>星辉</strong>
+              <small>星尘电光</small>
+            </span>
+          </button>
+        </div>
+      </section>
+
       <section class="play-area">
         <div class="board-frame">
           <canvas id="game-board" width="600" height="600" aria-label="贪吃蛇游戏区域"></canvas>

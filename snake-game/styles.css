@@ -40,7 +40,7 @@ button {
   margin: 0 auto;
   padding: 18px 0;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   gap: 20px;
 }
 
@@ -54,6 +54,121 @@ button {
   align-items: center;
   background: rgba(5, 20, 37, 0.82);
   box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 3px rgba(255, 255, 255, 0.02);
+}
+
+.skin-picker {
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: minmax(170px, 240px) 1fr;
+  gap: 16px 18px;
+  align-items: center;
+  border: 2px solid rgba(240, 82, 66, 0.85);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(11, 31, 55, 0.95), rgba(7, 22, 41, 0.92)),
+    rgba(5, 20, 37, 0.86);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 2px rgba(255, 255, 255, 0.04);
+}
+
+.skin-picker__label {
+  display: grid;
+  gap: 4px;
+}
+
+.skin-picker__label span {
+  color: var(--coral);
+  font-size: 17px;
+  letter-spacing: 0.08em;
+}
+
+.skin-picker__label strong {
+  color: var(--cream);
+  font-size: 14px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  opacity: 0.82;
+}
+
+.skin-picker__options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.skin-option {
+  min-height: 70px;
+  padding: 12px 13px;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid rgba(255, 135, 120, 0.56);
+  border-radius: 14px;
+  color: var(--cream);
+  background:
+    linear-gradient(180deg, rgba(31, 46, 68, 0.95), rgba(12, 26, 44, 0.96));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 4px 0 rgba(0, 0, 0, 0.18);
+  text-align: left;
+}
+
+.skin-option[aria-pressed="true"] {
+  border-color: var(--cream);
+  box-shadow:
+    0 0 0 2px rgba(183, 214, 60, 0.2),
+    0 0 22px rgba(240, 82, 66, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 4px 0 rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+}
+
+.skin-option:hover {
+  filter: brightness(1.08);
+}
+
+.skin-option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  filter: saturate(0.85);
+}
+
+.skin-option__swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.22), 0 0 0 2px rgba(0, 0, 0, 0.26);
+}
+
+.skin-option__swatch--ember {
+  background: radial-gradient(circle at 30% 30%, #fff2be 0 18%, #ff9a3d 25%, #f34f2e 58%, #7e1d20 100%);
+}
+
+.skin-option__swatch--storm {
+  background: radial-gradient(circle at 30% 30%, #ecfeff 0 16%, #76e8ff 24%, #7864ff 62%, #183068 100%);
+}
+
+.skin-option__swatch--jade {
+  background: radial-gradient(circle at 30% 30%, #f4ffd1 0 16%, #9cf05c 26%, #2bc67a 60%, #0f4126 100%);
+}
+
+.skin-option__swatch--cosmic {
+  background: radial-gradient(circle at 30% 30%, #fff0fe 0 14%, #ff78d8 22%, #7c68ff 60%, #13215c 100%);
+}
+
+.skin-option__text {
+  display: grid;
+  gap: 2px;
+}
+
+.skin-option__text strong {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.skin-option__text small {
+  color: var(--cream-dark);
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12px;
 }
 
 .brand {
@@ -169,7 +284,9 @@ button:focus-visible {
   padding: 10px;
   border: 3px solid var(--coral);
   border-radius: 23px;
-  background: var(--cream-dark);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.12), transparent 38%),
+    linear-gradient(180deg, #e7d7a8 0%, #d8c18e 100%);
   box-shadow: 0 10px 0 rgba(0, 0, 0, 0.32), inset 0 0 0 3px var(--navy);
 }
 
@@ -179,7 +296,12 @@ canvas {
   display: block;
   border: 2px solid #81775f;
   border-radius: 13px;
-  background: var(--cream);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.24), transparent 36%),
+    linear-gradient(180deg, #f5ecd5 0%, #efe1bb 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 0 36px rgba(255, 255, 255, 0.14);
 }
 
 .start-hint,
@@ -461,6 +583,15 @@ canvas {
     margin-top: 10px;
   }
 
+  .skin-picker {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .skin-picker__options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .stat strong {
     font-size: 30px;
   }
@@ -537,6 +668,19 @@ canvas {
   .board-frame {
     padding: 7px;
     border-radius: 16px;
+  }
+
+  .skin-option {
+    min-height: 64px;
+    padding: 10px 11px;
+  }
+
+  .skin-option__text strong {
+    font-size: 16px;
+  }
+
+  .skin-option__text small {
+    font-size: 11px;
   }
 
   .controls p {
