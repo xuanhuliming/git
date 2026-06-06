@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071629" />
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="贪吃蛇">
+          <span class="brand-mark"></span>
+          <h1>贪吃蛇</h1>
+        </div>
+
+        <div class="stats" aria-live="polite">
+          <div class="stat">
+            <span>得分</span>
+            <strong id="score">000</strong>
+          </div>
+          <div class="divider"></div>
+          <div class="stat">
+            <span>最高</span>
+            <strong id="best-score">000</strong>
+          </div>
+        </div>
+
+        <button class="pause-button" id="pause-button" type="button">
+          <span class="pause-icon" aria-hidden="true"></span>
+          <span id="pause-label">暂停</span>
+        </button>
+      </header>
+
+      <section class="play-area">
+        <div class="board-frame">
+          <canvas id="game-board" width="600" height="600" aria-label="贪吃蛇游戏区域"></canvas>
+          <div class="start-hint" id="start-hint">
+            <span>按任意方向键开始</span>
+          </div>
+          <div class="overlay" id="game-over" hidden>
+            <div class="dialog">
+              <p class="dialog-title">游戏结束</p>
+              <div class="ornament"><span></span></div>
+              <span class="dialog-label">本局得分</span>
+              <strong id="final-score">0</strong>
+              <button id="restart-button" type="button">再来一局</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side-panel">
+          <p class="side-title"><span></span>游戏说明<span></span></p>
+          <div class="instructions">
+            <div class="instruction-number">01</div>
+            <p>吃掉青柠果实<br />让蛇身不断变长</p>
+            <div class="instruction-number">02</div>
+            <p>不要撞到边界<br />也不要碰到自己</p>
+          </div>
+          <div class="status-card">
+            <span>当前状态</span>
+            <strong id="status-text">等待开始</strong>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="controls">
+        <p><span class="keyboard-icon" aria-hidden="true"></span>方向键 / WASD 移动 <i></i> 空格暂停 <i></i> R 重新开始</p>
+        <div class="dpad" aria-label="触控方向键">
+          <button data-direction="up" aria-label="向上">↑</button>
+          <button data-direction="left" aria-label="向左">←</button>
+          <span></span>
+          <button data-direction="right" aria-label="向右">→</button>
+          <button data-direction="down" aria-label="向下">↓</button>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
